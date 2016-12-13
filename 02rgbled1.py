@@ -1,15 +1,17 @@
 import time
 import RPi.GPIO as GPIO
 
+t = 0.5
+pins = [12, 16]
+
+def init():
+ GPIO.setmode(GPIO.BOARD)
+
+ for index in range(0, len(pins)):
+   GPIO.setup(pins[index], GPIO.OUT)
+
 try:
-  #time to wait
-  t = 0.5
-  #use RPi.GPIO Layout (like pin-numbers)
-  GPIO.setmode(GPIO.BOARD)
-  #set pin 12 (GPIO 18)
-  GPIO.setup(12, GPIO.OUT)
-  #set pin 16 (GPIO 23)
-  GPIO.setup(16, GPIO.OUT)
+  init()
 
   while 1:
     #turn off
